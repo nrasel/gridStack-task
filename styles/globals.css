@@ -21,6 +21,20 @@ a {
   }
   body {
     color: white;
-    background: black;
+    /* background: black; */
+    /* overflow: hidden; */
+   /* display: block; */
+  }
+  .css-11xur9t-MuiPaper-root-MuiTableContainer-root{
+    background-color: white;
+    /* width: 295px; */
+  }
+  ul li{
+    list-style: none;
+    font-size: 12px;
+    margin: 5px;
+  }
+  ul{
+    padding: 0px 6px 14px 6px;
   }
 }

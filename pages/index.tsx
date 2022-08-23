@@ -22,6 +22,17 @@ import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import crown from "../public/image/crown.png";
 import avatar from "../public/image/elipse.png";
+import GroupIcon from "@mui/icons-material/Group";
+import OutboundIcon from "@mui/icons-material/Outbound";
+// import Chart from "react-apexcharts";
+import dynamic from "next/dynamic";
+import Donuts from "../components/donuts";
+import Mytable from "../components/Mytable";
+import LastPart from "../components/LastPart";
+// import BasicTable from "../components/BasicTable";
+const ReactApexChart = dynamic(() => import("react-apexcharts"), {
+  ssr: false,
+});
 
 const drawerWidth = 115;
 
@@ -29,7 +40,7 @@ interface Props {
   window?: () => Window;
 }
 
-const Home: NextPage = (props: Props) => {
+const Home: NextPage = (props: Props, options: any) => {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -78,7 +89,7 @@ const Home: NextPage = (props: Props) => {
             color: "#FFFFFF",
           }}
         >
-          <ShoppingCartIcon  />
+          <ShoppingCartIcon />
           <p style={{ margin: "0px" }}>Orders</p>
         </div>
       </List>
@@ -132,7 +143,7 @@ const Home: NextPage = (props: Props) => {
             color: "#FFFFFF",
           }}
         >
-          <ThumbUpOffAltIcon  />
+          <ThumbUpOffAltIcon />
           <p style={{ margin: "0px" }}>Reviews</p>
         </div>
       </List>
@@ -150,7 +161,7 @@ const Home: NextPage = (props: Props) => {
             color: "#FFFFFF",
           }}
         >
-          <LocalShippingIcon  />
+          <LocalShippingIcon />
           <p style={{ margin: "0px" }}>Shipping</p>
         </div>
       </List>
@@ -186,7 +197,7 @@ const Home: NextPage = (props: Props) => {
             color: "#FFFFFF",
           }}
         >
-          <NotificationsNoneIcon  />
+          <NotificationsNoneIcon />
           <p style={{ margin: "0px" }}>Notification</p>
         </div>
       </List>
@@ -211,6 +222,45 @@ const Home: NextPage = (props: Props) => {
     </div>
   );
 
+  const [state, setState] = React.useState({
+    series: [
+      {
+        name: "series1",
+        data: [31, 40, 28, 51, 42, 109, 100],
+      },
+    ],
+    options: {
+      chart: {
+        height: 350,
+        type: "area",
+      },
+      dataLabels: {
+        enabled: false,
+      },
+      stroke: {
+        curve: "smooth",
+      },
+      xaxis: {
+        type: "datetime",
+        categories: [
+          "2018-09-19T00:00:00.000Z",
+          "2018-09-19T01:30:00.000Z",
+          "2018-09-19T02:30:00.000Z",
+          "2018-09-19T03:30:00.000Z",
+          "2018-09-19T04:30:00.000Z",
+          "2018-09-19T05:30:00.000Z",
+          "2018-09-19T06:30:00.000Z",
+        ],
+      },
+      tooltip: {
+        x: {
+          format: "dd/MM/yy HH:mm",
+        },
+      },
+    },
+  });
+
+
   const container =
     window !== undefined ? () => window().document.body : undefined;
   return (
@@ -234,12 +284,31 @@ const Home: NextPage = (props: Props) => {
           >
             <MenuIcon />
           </IconButton>
-          <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
             <div style={{ color: "#292929" }}>Hello John Doe 👋</div>
             <div>
-              <div style={{display:'flex',alignItems:'center',justifyContent:'center'}}>
-                <input style={{border:'black',background:'#FFFFFF',color:'#D2D2D2'}} type="text" />
-                <NotificationsNoneIcon style={{color:'#E2BC82'}} />
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <input
+                  style={{
+                    border: "black",
+                    background: "#FFFFFF",
+                    color: "#D2D2D2",
+                  }}
+                  type="text"
+                />
+                <NotificationsNoneIcon style={{ color: "#E2BC82" }} />
                 <Image src={avatar} alt="avatar" />
               </div>
             </div>
@@ -294,18 +363,241 @@ const Home: NextPage = (props: Props) => {
         }}
       >
         <Toolbar />
-        <div style={{display:'flex'}}>
+        <div style={{ display: "flex" }}>
+          <div style={{ display: "flex" }}>
+            <div
+              style={{
+                display: "flex",
+                backgroundColor: "#FFFFFF",
+                boxShadow: "0px 4px 15px rgba(41, 41, 41, 0.15)",
+                borderRadius: "20px",
+                width: "360px",
+                height: "125px",
+                alignItems: "center",
+                justifyContent: "space-around",
+              }}
+            >
+              <span
+                style={{
+                  color: " #E2BC82",
+                  backgroundColor: "#99B2C6",
+                  borderRadius: "40px",
+                  height: "75px",
+                  width: "75px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <GroupIcon />
+              </span>
+              <div>
+                <span
+                  style={{
+                    color: "#292929",
+                    fontSize: "24px",
+                    fontWeight: "700",
+                  }}
+                >
+                  10
+                </span>
+                <p
+                  style={{ margin: "0px", color: "#292929", fontWeight: "500" }}
+                >
+                  Customers
+                </p>
+              </div>
+              <div style={{ color: "#04AF00" }}>
+                <OutboundIcon />
+                <p style={{ margin: "0px" }}>+20% Inc</p>
+              </div>
+            </div>
+
+            <div style={{ margin: "0px 0px 0px 20px" }}>
+              <div
+                style={{
+                  display: "flex",
+                  backgroundColor: "#FFFFFF",
+                  boxShadow: "0px 4px 15px rgba(41, 41, 41, 0.15)",
+                  borderRadius: "20px",
+                  width: "360px",
+                  height: "125px",
+                  alignItems: "center",
+                  justifyContent: "space-around",
+                }}
+              >
+                <span
+                  style={{
+                    color: " #E2BC82",
+                    backgroundColor: "#99B2C6",
+                    borderRadius: "40px",
+                    height: "75px",
+                    width: "75px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <GroupIcon />
+                </span>
+                <div>
+                  <span
+                    style={{
+                      color: "#292929",
+                      fontSize: "24px",
+                      fontWeight: "700",
+                    }}
+                  >
+                    10
+                  </span>
+                  <p
+                    style={{
+                      margin: "0px",
+                      color: "#292929",
+                      fontWeight: "500",
+                    }}
+                  >
+                    Customers
+                  </p>
+                </div>
+                <div style={{ color: "#04AF00" }}>
+                  <OutboundIcon />
+                  <p style={{ margin: "0px" }}>+20% Inc</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style={{ display: "flex", margin: "0px 0px 0px 20px" }}>
+            <div
+              style={{
+                display: "flex",
+                backgroundColor: "#FFFFFF",
+                boxShadow: "0px 4px 15px rgba(41, 41, 41, 0.15)",
+                borderRadius: "20px",
+                width: "360px",
+                height: "125px",
+                alignItems: "center",
+                justifyContent: "space-around",
+              }}
+            >
+              <span
+                style={{
+                  color: " #E2BC82",
+                  backgroundColor: "#99B2C6",
+                  borderRadius: "40px",
+                  height: "75px",
+                  width: "75px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <GroupIcon />
+              </span>
+              <div>
+                <span
+                  style={{
+                    color: "#292929",
+                    fontSize: "24px",
+                    fontWeight: "700",
+                  }}
+                >
+                  10
+                </span>
+                <p
+                  style={{ margin: "0px", color: "#292929", fontWeight: "500" }}
+                >
+                  Customers
+                </p>
+              </div>
+              <div style={{ color: "#04AF00" }}>
+                <OutboundIcon />
+                <p style={{ margin: "0px" }}>+20% Inc</p>
+              </div>
+            </div>
+
+            <div style={{ margin: "0px 0px 0px 20px" }}>
+              <div
+                style={{
+                  display: "flex",
+                  backgroundColor: "#FFFFFF",
+                  boxShadow: "0px 4px 15px rgba(41, 41, 41, 0.15)",
+                  borderRadius: "20px",
+                  width: "360px",
+                  height: "125px",
+                  alignItems: "center",
+                  justifyContent: "space-around",
+                }}
+              >
+                <span
+                  style={{
+                    color: " #E2BC82",
+                    backgroundColor: "#99B2C6",
+                    borderRadius: "40px",
+                    height: "75px",
+                    width: "75px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <GroupIcon />
+                </span>
+                <div>
+                  <span
+                    style={{
+                      color: "#292929",
+                      fontSize: "24px",
+                      fontWeight: "700",
+                    }}
+                  >
+                    10
+                  </span>
+                  <p
+                    style={{
+                      margin: "0px",
+                      color: "#292929",
+                      fontWeight: "500",
+                    }}
+                  >
+                    Customers
+                  </p>
+                </div>
+                <div style={{ color: "#04AF00" }}>
+                  <OutboundIcon />
+                  <p style={{ margin: "0px" }}>+20% Inc</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style={{ display: "flex",marginTop:'40px',justifyContent:'space-bewteen'}}>
+          {/* <div> */}
+            <ReactApexChart
+              options={state.options}
+              series={state.series}
+              type="area"
+              height={350}
+              style={{ width: "50%" }}
+            />
+          {/* </div> */}
           <div style={{display:'flex'}}>
-          <div>
-          <h1>hello1</h1>
+            <div>
+            <Donuts/>
+            </div>
+            <div>
+              <Mytable/>
+            </div>
           </div>
-          <div>
-          <h1>hello2</h1>
-          </div>
-          </div>
-          <div>
-            <h1>hello</h1>
-          </div>
+        </div>
+        <div style={{display:'flex',justifyContent:'space-between'}}>
+          {/* <div> */}
+          <LastPart/>
+          {/* </div> */}
+          {/* <div> */}
+          <LastPart/>
+          {/* </div> */}
         </div>
       </Box>
     </Box>
