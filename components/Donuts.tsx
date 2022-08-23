@@ -26,7 +26,7 @@ function Donuts() {
     })
   return (
     <div>
-        <ReactApexChart options={donuts.options} series={donuts.series} type="donut" />
+        <ReactApexChart  options={donuts.options} series={donuts.series} type="donut" />
     </div>
   )
 }

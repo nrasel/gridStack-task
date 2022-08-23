@@ -3,7 +3,7 @@ import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 function Mytable() {
   return (
-    <div style={{backgroundColor:'#FFFFFF',boxShadow:'0px 4px 15px rgba(41, 41, 41, 0.15)',borderRadius:'15px'}}>
+    <div style={{backgroundColor:'#FFFFFF',boxShadow:'0px 4px 15px rgba(41, 41, 41, 0.15)',borderRadius:'15px',width:'420px',padding:'10px'}}>
       <ul style={{display:'flex',borderBottom:'1px solid #292929',alignItems:'center',justifyContent:'space-between'}}>
         <li style={{color:'#292929',fontSize:'18px'}}>Users</li>
         <li style={{color:'#ABABAB',display:'flex',alignItems:'center',justifyContent:'center',fontSize:'12px',cursor:'pointer'}}><span >See all </span><KeyboardArrowRightIcon/></li>

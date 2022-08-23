@@ -29,6 +29,7 @@ import dynamic from "next/dynamic";
 import Donuts from "../components/donuts";
 import Mytable from "../components/Mytable";
 import LastPart from "../components/LastPart";
+import DressPart from "../components/DressPart";
 // import BasicTable from "../components/BasicTable";
 const ReactApexChart = dynamic(() => import("react-apexcharts"), {
   ssr: false,
@@ -260,7 +261,6 @@ const Home: NextPage = (props: Props, options: any) => {
     },
   });
 
-
   const container =
     window !== undefined ? () => window().document.body : undefined;
   return (
@@ -300,14 +300,84 @@ const Home: NextPage = (props: Props, options: any) => {
                   justifyContent: "center",
                 }}
               >
-                <input
-                  style={{
-                    border: "black",
-                    background: "#FFFFFF",
-                    color: "#D2D2D2",
-                  }}
-                  type="text"
-                />
+                <div>
+                  <input
+                    style={{
+                      border: "black",
+                      background: "#FFFFFF",
+                      color: "#D2D2D2",
+                      outline: "none",
+                    }}
+                    type="text"
+                    disabled
+                  />
+                  <input
+                    style={{
+                      border: "black",
+                      background: "#FFFFFF",
+                      color: "#D2D2D2",
+                      outline: "none",
+                    }}
+                    type="text"
+                    disabled
+                  />
+                  <input
+                    style={{
+                      border: "black",
+                      background: "#FFFFFF",
+                      color: "#D2D2D2",
+                      outline: "none",
+                    }}
+                    type="text"
+                    disabled
+                  />
+                  <input
+                    style={{
+                      border: "black",
+                      background: "#FFFFFF",
+                      color: "#D2D2D2",
+                      outline: "none",
+                    }}
+                    type="text"
+                    disabled
+                  />
+                  <input
+                    style={{
+                      border: "black",
+                      background: "#FFFFFF",
+                      color: "#D2D2D2",
+                      outline: "none",
+                    }}
+                    type="text"
+                    disabled
+                  />
+                  <input
+                    style={{
+                      border: "black",
+                      background: "#FFFFFF",
+                      color: "#D2D2D2",
+                      outline: "none",
+                    }}
+                    type="text"
+                    disabled
+                  />
+
+                  <input
+                    style={{
+                      border: "black",
+                      background: "#FFFFFF",
+                      color: "#D2D2D2",
+                      marginLeft: "40px",
+                      border: "1px solid #D2D2D2",
+                      outline: "none",
+                      padding: "7px 30px",
+                      borderRadius: "10px",
+                      marginRight: "5px",
+                    }}
+                    type="text"
+                    value="Search"
+                  />
+                </div>
                 <NotificationsNoneIcon style={{ color: "#E2BC82" }} />
                 <Image src={avatar} alt="avatar" />
               </div>
@@ -572,31 +642,76 @@ const Home: NextPage = (props: Props, options: any) => {
           </div>
         </div>
 
-        <div style={{ display: "flex",marginTop:'40px',justifyContent:'space-bewteen'}}>
+        <div
+          style={{
+            display: "flex",
+            marginTop: "40px",
+            justifyContent: "space-bewteen",
+          }}
+        >
           {/* <div> */}
-            <ReactApexChart
-              options={state.options}
-              series={state.series}
-              type="area"
-              height={350}
-              style={{ width: "50%" }}
-            />
+          <ReactApexChart
+            options={state.options}
+            series={state.series}
+            type="area"
+            height={350}
+            style={{
+              backgroundColor: "#FFFFFF",
+              boxShadow: "0px 4px 15px rgba(41, 41, 41, 0.15)",
+              borderRadius: "15px",
+              width: "48%",
+              margin: "10px",
+            }}
+          />
           {/* </div> */}
-          <div style={{display:'flex'}}>
-            <div>
-            <Donuts/>
+          <div style={{ display: "flex", margin: "10px" }}>
+            <div
+              style={{
+                backgroundColor: "#FFFFFF",
+                boxShadow: "0px 4px 15px rgba(41, 41, 41, 0.15)",
+                borderRadius: "15px",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-around",
+                }}
+              >
+                <p style={{ color: "#292929", fontSize: "18px" }}>Top Sales</p>
+                <select
+                  style={{
+                    backgroundColor: "#ECECEC",
+                    color: "#292929",
+                    boxShadow: "0px 0px 5px rgba(40, 86, 120, 0.1)",
+                    borderRadius: "5px",
+                    width: "100px",
+                    height: "29px",
+                  }}
+                  name="cars"
+                  id="cars"
+                >
+                  <option value="volvo">This Year</option>
+                  <option value="saab">Demo1</option>
+                  <option value="opel">Demo2</option>
+                  <option value="audi">Demo3</option>
+                </select>
+              </div>
+
+              <Donuts />
             </div>
-            <div>
-              <Mytable/>
+            <div style={{ margin: "0px 0px 0px 21px" }}>
+              <Mytable />
             </div>
           </div>
         </div>
-        <div style={{display:'flex',justifyContent:'space-between'}}>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
           {/* <div> */}
-          <LastPart/>
+          <LastPart />
           {/* </div> */}
           {/* <div> */}
-          <LastPart/>
+          <DressPart />
           {/* </div> */}
         </div>
       </Box>

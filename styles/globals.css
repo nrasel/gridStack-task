@@ -37,4 +37,7 @@ a {
   ul{
     padding: 0px 6px 14px 6px;
   }
+  .dashboard:hover{
+    background: "#E2BC82"
+  }
 }
